@@ -2,7 +2,9 @@
   "name": "@naturalcycles/puppeteer-lib",
   "scripts": {
     "html2pdf": "tsn ./src/bin/html2pdf.ts",
-    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/*.html' --verbose"
+    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/*.html' --verbose",
+    "html2png": "tsn ./src/bin/html2png.ts",
+    "html2png-debug": "tsn ./src/bin/html2png.ts './test/**/*.html' --verbose"
   },
   "dependencies": {
     "@naturalcycles/promise-lib": "^2.0.0",
@@ -35,7 +37,8 @@
     "!src/**/__exclude"
   ],
   "bin": {
-    "html2pdf": "dist/bin/html2pdf.js"
+    "html2pdf": "dist/bin/html2pdf.js",
+    "html2png": "dist/bin/html2png.js"
   },
   "publishConfig": {
     "access": "public"
