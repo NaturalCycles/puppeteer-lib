@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.1.1...v1.2.0) (2019-04-23)
+
+
+### Features
+
+* log ms time, concurrency default to 8 ([3d40d3b](https://github.com/NaturalCycles/puppeteer-lib/commit/3d40d3b))
+
 ## [1.1.1](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.1.0...v1.1.1) (2019-04-23)
 
 
