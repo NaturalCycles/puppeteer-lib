@@ -47,7 +47,7 @@
   "engines": {
     "node": ">=10.13"
   },
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "CLI to quickly produce PDFs from HTML files using Puppeteer",
   "author": "Natural Cycles Team",
   "license": "MIT"

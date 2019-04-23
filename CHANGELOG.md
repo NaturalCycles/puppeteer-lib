@@ -1,3 +1,11 @@
+## [1.1.1](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.1.0...v1.1.1) (2019-04-23)
+
+
+### Bug Fixes
+
+* allow to run as root with --no-sandbox ([a19b592](https://github.com/NaturalCycles/puppeteer-lib/commit/a19b592))
+* typo ([b445f78](https://github.com/NaturalCycles/puppeteer-lib/commit/b445f78))
+
 # [1.1.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.0.0...v1.1.0) (2019-04-23)
 
 
