@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.3.0...v1.4.0) (2019-04-23)
+
+
+### Features
+
+* --format, --landscape ([7eb9aad](https://github.com/NaturalCycles/puppeteer-lib/commit/7eb9aad))
+
 # [1.3.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.2.0...v1.3.0) (2019-04-23)
 
 
