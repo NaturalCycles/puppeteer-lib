@@ -1,3 +1,10 @@
+# [1.3.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.2.0...v1.3.0) (2019-04-23)
+
+
+### Features
+
+* improve margins, add --scale ([c175a31](https://github.com/NaturalCycles/puppeteer-lib/commit/c175a31))
+
 # [1.2.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.1.1...v1.2.0) (2019-04-23)
 
 
