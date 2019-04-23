@@ -7,13 +7,7 @@ import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 
 export async function html2pdfCommand (): Promise<void> {
-  const { input, concurrency, verbose } = yargs.options({
-    input: {
-      type: 'string',
-      array: true,
-      desc: 'Path to input html file(s). Globs are supported.',
-      demandOption: true,
-    },
+  const { _: inputPatterns, concurrency, verbose } = yargs.options({
     concurrency: {
       type: 'number',
       default: 4,
@@ -24,9 +18,9 @@ export async function html2pdfCommand (): Promise<void> {
     },
   }).argv
 
-  const inputs = await globby(input)
+  const inputs = await globby(inputPatterns)
 
-  if (verbose) console.log({ input, inputs })
+  if (verbose) console.log({ inputPatterns, inputs })
 
   // Validate that all input files exist
   inputs.forEach(inputPath => {
@@ -36,8 +30,8 @@ export async function html2pdfCommand (): Promise<void> {
   })
 
   if (!inputs.length) {
-    console.log({ input, inputs })
-    throw new Error(`Couldn't find any files specified in --input`)
+    console.log({ inputPatterns, inputs })
+    throw new Error(`Couldn't find any files, please check your input arguments`)
   }
 
   const browser = await puppeteer.launch()
@@ -48,7 +42,7 @@ export async function html2pdfCommand (): Promise<void> {
     return browser.close()
   })
 
-  console.log(`DONE! Created ${input.length} PDFs`)
+  console.log(`DONE! Created ${inputs.length} PDFs`)
 }
 
 async function html2pdfFile (browser: Browser, inputPath: string, verbose = false): Promise<void> {

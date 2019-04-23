@@ -16,17 +16,24 @@ OR
 
 # Usage
 
-    yarn html2pdf --input index.html
+    yarn html2pdf index.html
 
 Will produce `index.html.pdf` file next to the original file.
 
+Positional arguments:
+
+- List of paths to process. Multiple files are supported. Globs are supported (see examples below).
+
 Options:
 
-- `--input` Input file. Multiple files are supported. Globs are supported (see examples below).
 - `--verbose` Print more logs.
 - `--concurrency` Concurrency for opened Puppeteer pages. Default to 4. Tune if something is not
   working.
 
+Example, convert many matching files:
+
+    yarn html2pdf index1.html index2.html
+
 Example, convert all matching files:
 
-    yarn html2pdf --input './someFolder/**/*.html'
+    yarn html2pdf './someFolder/**/*.html'

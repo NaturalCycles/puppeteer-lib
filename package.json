@@ -2,7 +2,7 @@
   "name": "@naturalcycles/puppeteer-lib",
   "scripts": {
     "html2pdf": "tsn ./src/bin/html2pdf.ts",
-    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts --input './test/**/*.html' --verbose"
+    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/*.html' --verbose"
   },
   "dependencies": {
     "@naturalcycles/promise-lib": "^2.0.0",
