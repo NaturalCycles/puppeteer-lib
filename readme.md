@@ -27,8 +27,9 @@ Positional arguments:
 Options:
 
 - `--verbose` Print more logs.
-- `--concurrency` Concurrency for opened Puppeteer pages. Default to 4. Tune if something is not
+- `--concurrency` Concurrency for opened Puppeteer pages. Default to 8. Tune if something is not
   working.
+- `--scale` Print scale, e.g `0.5`. Default: `1`.
 
 Example, convert many matching files:
 

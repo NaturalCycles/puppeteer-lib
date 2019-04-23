@@ -7,10 +7,14 @@ import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 
 export async function html2pdfCommand (): Promise<void> {
-  const { _: inputPatterns, concurrency, verbose } = yargs.options({
+  const { _: inputPatterns, concurrency, scale, verbose } = yargs.options({
     concurrency: {
       type: 'number',
       default: 8,
+    },
+    scale: {
+      type: 'number',
+      default: 1,
     },
     verbose: {
       type: 'boolean',
@@ -36,7 +40,7 @@ export async function html2pdfCommand (): Promise<void> {
 
   const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
 
-  await pMap(inputs, inputPath => html2pdfFile(browser, inputPath, verbose), {
+  await pMap(inputs, inputPath => html2pdfFile(browser, inputPath, scale, verbose), {
     concurrency,
   }).finally(() => {
     return browser.close()
@@ -45,7 +49,12 @@ export async function html2pdfCommand (): Promise<void> {
   console.log(`DONE! Created ${inputs.length} PDFs`)
 }
 
-async function html2pdfFile (browser: Browser, inputPath: string, verbose = false): Promise<void> {
+async function html2pdfFile (
+  browser: Browser,
+  inputPath: string,
+  scale: number,
+  verbose = false,
+): Promise<void> {
   const d = Date.now()
   // const outPath = path.join(outDir, path.basename(inputPath) + '.pdf')
   const outPath = inputPath + '.pdf'
@@ -61,6 +70,14 @@ async function html2pdfFile (browser: Browser, inputPath: string, verbose = fals
   await page.pdf({
     path: outPath,
     format: 'A4',
+    printBackground: true,
+    scale,
+    margin: {
+      top: '8mm',
+      bottom: '8mm',
+      right: '8mm',
+      left: '8mm',
+    },
   })
 
   console.log(`${inputPath} done in ${Date.now() - d} ms`)
