@@ -34,7 +34,7 @@ export async function html2pdfCommand (): Promise<void> {
     throw new Error(`Couldn't find any files, please check your input arguments`)
   }
 
-  const browser = await puppeteer.launch()
+  const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
 
   await pMap(inputs, inputPath => html2pdfFile(browser, inputPath, verbose), {
     concurrency,
