@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.4.0...v1.5.0) (2019-04-23)
+
+
+### Features
+
+* html2png command ([8404085](https://github.com/NaturalCycles/puppeteer-lib/commit/8404085))
+
 # [1.4.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.3.0...v1.4.0) (2019-04-23)
 
 
