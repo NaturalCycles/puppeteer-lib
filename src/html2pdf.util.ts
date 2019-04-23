@@ -2,12 +2,12 @@ import { pMap } from '@naturalcycles/promise-lib'
 import * as fileUrl from 'file-url'
 import * as fs from 'fs-extra'
 import globby from 'globby'
-import { Browser } from 'puppeteer'
+import { Browser, PDFFormat } from 'puppeteer'
 import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 
 export async function html2pdfCommand (): Promise<void> {
-  const { _: inputPatterns, concurrency, scale, verbose } = yargs.options({
+  const { _: inputPatterns, concurrency, scale, format, landscape, verbose } = yargs.options({
     concurrency: {
       type: 'number',
       default: 8,
@@ -15,6 +15,14 @@ export async function html2pdfCommand (): Promise<void> {
     scale: {
       type: 'number',
       default: 1,
+    },
+    format: {
+      type: 'string',
+      default: 'A4',
+    },
+    landscape: {
+      type: 'boolean',
+      default: false,
     },
     verbose: {
       type: 'boolean',
@@ -40,9 +48,13 @@ export async function html2pdfCommand (): Promise<void> {
 
   const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
 
-  await pMap(inputs, inputPath => html2pdfFile(browser, inputPath, scale, verbose), {
-    concurrency,
-  }).finally(() => {
+  await pMap(
+    inputs,
+    inputPath => html2pdfFile(browser, inputPath, scale, format as PDFFormat, landscape, verbose),
+    {
+      concurrency,
+    },
+  ).finally(() => {
     return browser.close()
   })
 
@@ -52,7 +64,9 @@ export async function html2pdfCommand (): Promise<void> {
 async function html2pdfFile (
   browser: Browser,
   inputPath: string,
-  scale: number,
+  scale = 1,
+  format: PDFFormat = 'A4',
+  landscape = false,
   verbose = false,
 ): Promise<void> {
   const d = Date.now()
@@ -69,7 +83,8 @@ async function html2pdfFile (
 
   await page.pdf({
     path: outPath,
-    format: 'A4',
+    format,
+    landscape,
     printBackground: true,
     scale,
     margin: {
