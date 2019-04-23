@@ -1,18 +1,32 @@
 ## @naturalcycles/puppeteer-lib
 
-> Node.js library
+> CLI to quickly produce PDFs from HTML files using Puppeteer
 
 [![npm](https://img.shields.io/npm/v/@naturalcycles/puppeteer-lib/latest.svg)](https://www.npmjs.com/package/@naturalcycles/puppeteer-lib)
 [![](https://circleci.com/gh/NaturalCycles/puppeteer-lib.svg?style=shield&circle-token=123)](https://circleci.com/gh/NaturalCycles/puppeteer-lib)
 [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-# Features
+# Install
 
-- ...
+    yarn add @naturalcycles/puppeteer-lib
 
-# Packaging
+OR
 
-- `engines.node >= 10.13`: Latest Node.js LTS
-- `main: dist/index.js`: commonjs, es2018
-- `types: dist/index.d.ts`: typescript types
-- `/src` folder with source `*.ts` files included
+    npm i @naturalcycles/puppeteer-lib
+
+# Usage
+
+    yarn html2pdf --input index.html
+
+Will produce `index.html.pdf` file next to the original file.
+
+Options:
+
+- `--input` Input file. Multiple files are supported. Globs are supported (see examples below).
+- `--verbose` Print more logs.
+- `--concurrency` Concurrency for opened Puppeteer pages. Default to 4. Tune if something is not
+  working.
+
+Example, convert all matching files:
+
+    yarn html2pdf --input './someFolder/**/*.html'
