@@ -10,7 +10,7 @@ export async function html2pdfCommand (): Promise<void> {
   const { _: inputPatterns, concurrency, verbose } = yargs.options({
     concurrency: {
       type: 'number',
-      default: 4,
+      default: 8,
     },
     verbose: {
       type: 'boolean',
@@ -46,6 +46,7 @@ export async function html2pdfCommand (): Promise<void> {
 }
 
 async function html2pdfFile (browser: Browser, inputPath: string, verbose = false): Promise<void> {
+  const d = Date.now()
   // const outPath = path.join(outDir, path.basename(inputPath) + '.pdf')
   const outPath = inputPath + '.pdf'
   // console.log({outPath})
@@ -62,5 +63,5 @@ async function html2pdfFile (browser: Browser, inputPath: string, verbose = fals
     format: 'A4',
   })
 
-  console.log(`${inputPath} done`)
+  console.log(`${inputPath} done in ${Date.now() - d} ms`)
 }
