@@ -4,7 +4,11 @@
     "html2pdf": "tsn ./src/bin/html2pdf.ts",
     "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/*.html' --verbose",
     "html2png": "tsn ./src/bin/html2png.ts",
-    "html2png-debug": "tsn ./src/bin/html2png.ts './test/**/*.html' --verbose"
+    "html2png-debug": "tsn ./src/bin/html2png.ts './test/**/*.html' --verbose",
+    "url2png": "tsn ./src/bin/url2png.ts",
+    "url2png-debug": "tsn ./src/bin/url2png.ts https://google.com --outDir tmp --verbose",
+    "url2pdf": "tsn ./src/bin/url2pdf.ts",
+    "url2pdf-debug": "tsn ./src/bin/url2pdf.ts https://google.com --outDir tmp --verbose"
   },
   "dependencies": {
     "@naturalcycles/promise-lib": "^2.0.0",
@@ -38,7 +42,9 @@
   ],
   "bin": {
     "html2pdf": "dist/bin/html2pdf.js",
-    "html2png": "dist/bin/html2png.js"
+    "html2png": "dist/bin/html2png.js",
+    "url2pdf": "dist/bin/url2pdf.js",
+    "url2png": "dist/bin/url2png.js"
   },
   "publishConfig": {
     "access": "public"
@@ -51,7 +57,7 @@
     "node": ">=10.13"
   },
   "version": "1.5.0",
-  "description": "CLI to quickly produce PDFs from HTML files using Puppeteer",
+  "description": "CLI to quickly produce PDFs or screenshots from HTML files or urls using Puppeteer",
   "author": "Natural Cycles Team",
   "license": "MIT"
 }

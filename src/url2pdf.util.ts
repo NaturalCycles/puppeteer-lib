@@ -1,16 +1,20 @@
 import { pMap } from '@naturalcycles/promise-lib'
-import * as fileUrl from 'file-url'
 import * as fs from 'fs-extra'
-import globby from 'globby'
+import * as path from 'path'
 import { Browser, PDFFormat } from 'puppeteer'
 import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 
-export async function html2pdfCommand (): Promise<void> {
-  const { _: inputPatterns, concurrency, scale, format, landscape, verbose } = yargs.options({
+export async function url2pdfCommand (): Promise<void> {
+  const { _: urls, outDir, concurrency, scale, format, landscape, verbose } = yargs.options({
     concurrency: {
       type: 'number',
       default: 8,
+    },
+    outDir: {
+      type: 'string',
+      desc: 'Output directory (default to current working directory)',
+      default: process.cwd(),
     },
     scale: {
       type: 'number',
@@ -30,27 +34,21 @@ export async function html2pdfCommand (): Promise<void> {
     },
   }).argv
 
-  const inputs = await globby(inputPatterns)
+  await fs.ensureDir(outDir)
 
-  if (verbose) console.log({ inputPatterns, inputs })
+  if (verbose) console.log({ urls })
 
-  // Validate that all input files exist
-  inputs.forEach(inputPath => {
-    if (!fs.existsSync(inputPath)) {
-      throw new Error(`Input file doesn't exist: ${inputPath}`)
-    }
-  })
-
-  if (!inputs.length) {
-    console.log({ inputPatterns, inputs })
-    throw new Error(`Couldn't find any files, please check your input arguments`)
+  if (!urls.length) {
+    console.log({ urls })
+    throw new Error(`Please provide some urls in input arguments`)
   }
 
   const browser = await puppeteer.launch({ args: ['--no-sandbox'] })
 
   await pMap(
-    inputs,
-    inputPath => html2pdfFile(browser, inputPath, scale, format as PDFFormat, landscape, verbose),
+    urls,
+    (url, i) =>
+      url2pdf(browser, outDir, url, i + 1, scale, format as PDFFormat, landscape, verbose),
     {
       concurrency,
     },
@@ -58,12 +56,14 @@ export async function html2pdfCommand (): Promise<void> {
     return browser.close()
   })
 
-  console.log(`DONE! Created ${inputs.length} PDFs`)
+  console.log(`DONE! Created ${urls.length} PDFs`)
 }
 
-async function html2pdfFile (
+async function url2pdf (
   browser: Browser,
-  inputPath: string,
+  outDir: string,
+  url: string,
+  index: number,
   scale = 1,
   format: PDFFormat = 'A4',
   landscape = false,
@@ -71,11 +71,10 @@ async function html2pdfFile (
 ): Promise<void> {
   const d = Date.now()
   // const outPath = path.join(outDir, path.basename(inputPath) + '.pdf')
-  const outPath = inputPath + '.pdf'
+  const outPath = path.join(outDir, `${index}.pdf`)
   // console.log({outPath})
 
   const page = await browser.newPage()
-  const url = fileUrl(inputPath)
   if (verbose) console.log(`Opening ${url}...`)
 
   await page.goto(url)
@@ -97,5 +96,5 @@ async function html2pdfFile (
 
   await page.close()
 
-  console.log(`${inputPath} done in ${Date.now() - d} ms`)
+  console.log(`${url} done in ${Date.now() - d} ms`)
 }

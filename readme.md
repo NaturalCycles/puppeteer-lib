@@ -1,6 +1,6 @@
 ## @naturalcycles/puppeteer-lib
 
-> CLI to quickly produce PDFs from HTML files using Puppeteer
+> CLI to quickly produce PDFs or screenshots from HTML files or urls using Puppeteer
 
 [![npm](https://img.shields.io/npm/v/@naturalcycles/puppeteer-lib/latest.svg)](https://www.npmjs.com/package/@naturalcycles/puppeteer-lib)
 [![](https://circleci.com/gh/NaturalCycles/puppeteer-lib.svg?style=shield&circle-token=123)](https://circleci.com/gh/NaturalCycles/puppeteer-lib)
@@ -18,6 +18,8 @@ OR
 
 - `yarn html2pdf`
 - `yarn html2png`
+- `yarn url2pdf`
+- `yarn url2png`
 
 # html2pdf
 
@@ -77,3 +79,25 @@ Example, convert many matching files:
 Example, convert all matching files:
 
     yarn html2pdf './someFolder/**/*.html'
+
+# url2pdf
+
+    yarn url2pdf https://google.com --outDir someDir
+
+Will produce `someDir/1.pdf` file. Files are numbered incrementally starting with 1 based on order
+of inputs.
+
+Options: same as html2pdf, plus:
+
+- `--outDir` - output directory (defaults to `cwd`)
+
+# url2png
+
+    yarn url2png https://google.com --outDir someDir
+
+Will produce `someDir/1.png` file. Files are numbered incrementally starting with 1 based on order
+of inputs.
+
+Options: same as html2png, plus:
+
+- `--outDir` - output directory (defaults to `cwd`)
