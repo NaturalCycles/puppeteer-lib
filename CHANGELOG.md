@@ -1,3 +1,10 @@
+# [1.6.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.5.0...v1.6.0) (2019-04-24)
+
+
+### Features
+
+* url2pdf, url2png extra commands ([85afa3b](https://github.com/NaturalCycles/puppeteer-lib/commit/85afa3b))
+
 # [1.5.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.4.0...v1.5.0) (2019-04-23)
 
 
