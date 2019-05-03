@@ -1,3 +1,10 @@
+# [1.7.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.6.0...v1.7.0) (2019-05-03)
+
+
+### Features
+
+* headerText, footerText, margins and related parameters ([63b9876](https://github.com/NaturalCycles/puppeteer-lib/commit/63b9876))
+
 # [1.6.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.5.0...v1.6.0) (2019-04-24)
 
 
