@@ -35,12 +35,18 @@ Options:
 
 Run `yarn html2pdf help` to see all available options.
 
-- `--verbose` Print more logs.
-- `--concurrency` Concurrency for opened Puppeteer pages. Default to 8. Tune if something is not
-  working.
 - `--scale` Print scale, e.g `0.5`. Default: `1`.
 - `--format`. Default: `A4`. Google which PDF formats Puppeteer supports.
 - `--landscape`. Default: `false`.
+- `--margins`, e.g `20mm 20mm 20mm 20mm` (css-like syntax).
+- `--headerTemplate`, `--footerTemplate`
+- `--headerTemplateFile`, `--footerTemplateFile`
+- `--headerText`, `--footerText`
+- `--headerTextFile`, `--footerTextFile`
+- `--concurrency` Concurrency for opened Puppeteer pages. Default to 8. Tune if something is not
+  working.
+- `--verbose` Print more logs.
+- `--debug`
 
 Example, convert many matching files:
 

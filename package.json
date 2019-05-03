@@ -2,9 +2,9 @@
   "name": "@naturalcycles/puppeteer-lib",
   "scripts": {
     "html2pdf": "tsn ./src/bin/html2pdf.ts",
-    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/*.html' --verbose",
+    "html2pdf-debug": "tsn ./src/bin/html2pdf.ts './test/**/index*.html' --debug --footerTextFile ./test/html1/footer.txt --margins '8mm 8mm 20mm'",
     "html2png": "tsn ./src/bin/html2png.ts",
-    "html2png-debug": "tsn ./src/bin/html2png.ts './test/**/*.html' --verbose",
+    "html2png-debug": "tsn ./src/bin/html2png.ts './test/**/index*.html' --verbose",
     "url2png": "tsn ./src/bin/url2png.ts",
     "url2png-debug": "tsn ./src/bin/url2png.ts https://google.com --outDir tmp --verbose",
     "url2pdf": "tsn ./src/bin/url2pdf.ts",
@@ -19,17 +19,11 @@
     "yargs": "^13.2.2"
   },
   "devDependencies": {
+    "@naturalcycles/dev-lib": "^7.0.0",
     "@naturalcycles/semantic-release": "^1.0.0",
-    "@naturalcycles/shared-module": "^5.14.5",
-    "@types/jest": "^24.0.11",
     "@types/node": "^11.13.7",
     "@types/puppeteer": "^1.12.3",
     "jest": "^24.7.1",
-    "jest-junit": "^6.3.0",
-    "prettier": "^1.17.0",
-    "ts-jest": "^24.0.2",
-    "ts-node": "^8.1.0",
-    "tslint": "^5.16.0",
     "typescript": "^3.4.4"
   },
   "files": [
