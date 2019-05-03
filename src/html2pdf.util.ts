@@ -9,6 +9,7 @@ import { footerTextTmpl } from './tmpl/footerTextTmpl'
 import { headerTextTmpl } from './tmpl/headerTextTmpl'
 
 export async function html2pdfCommand (): Promise<void> {
+  const d = Date.now()
   const { argv } = yargs.options({
     scale: {
       type: 'number',
@@ -160,7 +161,7 @@ export async function html2pdfCommand (): Promise<void> {
     return browser.close()
   })
 
-  console.log(`DONE! Created ${inputs.length} PDFs`)
+  console.log(`DONE! Created ${inputs.length} PDFs in ${Date.now() - d} ms`)
 }
 
 async function html2pdfFile (
