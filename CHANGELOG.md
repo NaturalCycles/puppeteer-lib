@@ -1,3 +1,10 @@
+# [1.8.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.7.0...v1.8.0) (2019-05-03)
+
+
+### Features
+
+* log time spent ([9f085bd](https://github.com/NaturalCycles/puppeteer-lib/commit/9f085bd))
+
 # [1.7.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.6.0...v1.7.0) (2019-05-03)
 
 
