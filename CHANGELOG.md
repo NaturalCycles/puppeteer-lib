@@ -1,3 +1,10 @@
+## [1.8.1](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.8.0...v1.8.1) (2019-08-16)
+
+
+### Bug Fixes
+
+* security updates ([cd53756](https://github.com/NaturalCycles/puppeteer-lib/commit/cd53756))
+
 # [1.8.0](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.7.0...v1.8.0) (2019-05-03)
 
 
