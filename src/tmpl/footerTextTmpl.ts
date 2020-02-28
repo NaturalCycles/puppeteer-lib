@@ -1,4 +1,4 @@
-export function footerTextTmpl (text: string): string {
+export function footerTextTmpl(text: string): string {
   return `
 <style>
   footer {

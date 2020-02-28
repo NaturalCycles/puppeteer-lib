@@ -11,20 +11,17 @@
     "url2pdf-debug": "tsn ./src/bin/url2pdf.ts https://google.com --outDir tmp --verbose"
   },
   "dependencies": {
-    "@naturalcycles/promise-lib": "^2.0.0",
+    "@naturalcycles/js-lib": "^8.13.1",
     "file-url": "^3.0.0",
-    "fs-extra": "^7.0.1",
-    "globby": "^9.2.0",
-    "puppeteer": "^1.14.0",
-    "yargs": "^13.2.2"
+    "fs-extra": "^8.1.0",
+    "globby": "^11.0.0",
+    "puppeteer": "^2.1.1",
+    "yargs": "^15.1.0"
   },
   "devDependencies": {
-    "@naturalcycles/dev-lib": "^7.0.0",
-    "@naturalcycles/semantic-release": "^1.0.0",
-    "@types/node": "^11.13.7",
-    "@types/puppeteer": "^1.12.3",
-    "jest": "^24.7.1",
-    "typescript": "^3.4.4"
+    "@naturalcycles/dev-lib": "^10.2.0",
+    "@types/node": "^13.7.7",
+    "@types/puppeteer": "^2.0.1"
   },
   "files": [
     "dist",

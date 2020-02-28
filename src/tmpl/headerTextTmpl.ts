@@ -1,4 +1,4 @@
-export function headerTextTmpl (text: string): string {
+export function headerTextTmpl(text: string): string {
   return `
 <style>
   header {

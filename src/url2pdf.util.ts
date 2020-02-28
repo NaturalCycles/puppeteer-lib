@@ -1,11 +1,11 @@
-import { pMap } from '@naturalcycles/promise-lib'
+import { pMap } from '@naturalcycles/js-lib'
 import * as fs from 'fs-extra'
 import * as path from 'path'
 import { Browser, PDFFormat } from 'puppeteer'
 import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 
-export async function url2pdfCommand (): Promise<void> {
+export async function url2pdfCommand(): Promise<void> {
   const { _: urls, outDir, concurrency, scale, format, landscape, verbose } = yargs.options({
     concurrency: {
       type: 'number',
@@ -59,7 +59,7 @@ export async function url2pdfCommand (): Promise<void> {
   console.log(`DONE! Created ${urls.length} PDFs`)
 }
 
-async function url2pdf (
+async function url2pdf(
   browser: Browser,
   outDir: string,
   url: string,

@@ -1,7 +1,7 @@
-import { pMap } from '@naturalcycles/promise-lib'
+import { pMap } from '@naturalcycles/js-lib'
 import * as fileUrl from 'file-url'
 import * as fs from 'fs-extra'
-import globby from 'globby'
+import * as globby from 'globby'
 import { Browser } from 'puppeteer'
 import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
@@ -10,7 +10,7 @@ const FORMAT_MAP = {
   jpeg: 'jpg', // because `.jpeg` is ugly
 } as const
 
-export async function html2pngCommand (): Promise<void> {
+export async function html2pngCommand(): Promise<void> {
   const { _: inputPatterns, wh, concurrency, format, quality, fullPage, verbose } = yargs.options({
     concurrency: {
       type: 'number',
@@ -87,7 +87,7 @@ export async function html2pngCommand (): Promise<void> {
   console.log(`DONE! Created ${inputs.length} images`)
 }
 
-async function html2pngFile (
+async function html2pngFile(
   browser: Browser,
   inputPath: string,
   width = 800,

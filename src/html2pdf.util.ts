@@ -1,14 +1,14 @@
-import { pMap } from '@naturalcycles/promise-lib'
+import { pMap } from '@naturalcycles/js-lib'
 import * as fileUrl from 'file-url'
 import * as fs from 'fs-extra'
-import globby from 'globby'
+import * as globby from 'globby'
 import { Browser, PDFFormat } from 'puppeteer'
 import * as puppeteer from 'puppeteer'
 import * as yargs from 'yargs'
 import { footerTextTmpl } from './tmpl/footerTextTmpl'
 import { headerTextTmpl } from './tmpl/headerTextTmpl'
 
-export async function html2pdfCommand (): Promise<void> {
+export async function html2pdfCommand(): Promise<void> {
   const d = Date.now()
   const { argv } = yargs.options({
     scale: {
@@ -164,7 +164,7 @@ export async function html2pdfCommand (): Promise<void> {
   console.log(`DONE! Created ${inputs.length} PDFs in ${Date.now() - d} ms`)
 }
 
-async function html2pdfFile (
+async function html2pdfFile(
   browser: Browser,
   inputPath: string,
   scale = 1,

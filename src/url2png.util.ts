@@ -1,4 +1,4 @@
-import { pMap } from '@naturalcycles/promise-lib'
+import { pMap } from '@naturalcycles/js-lib'
 import * as fs from 'fs-extra'
 import * as path from 'path'
 import { Browser } from 'puppeteer'
@@ -9,7 +9,7 @@ const FORMAT_MAP = {
   jpeg: 'jpg', // because `.jpeg` is ugly
 } as const
 
-export async function url2pngCommand (): Promise<void> {
+export async function url2pngCommand(): Promise<void> {
   const { _: urls, outDir, wh, concurrency, format, quality, fullPage, verbose } = yargs.options({
     concurrency: {
       type: 'number',
@@ -82,7 +82,7 @@ export async function url2pngCommand (): Promise<void> {
   console.log(`DONE! Created ${urls.length} screenshots`)
 }
 
-async function url2png (
+async function url2png(
   browser: Browser,
   outDir: string,
   url: string,
