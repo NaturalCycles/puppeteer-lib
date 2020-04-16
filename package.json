@@ -11,11 +11,11 @@
     "url2pdf-debug": "tsn ./src/bin/url2pdf.ts https://google.com --outDir tmp --verbose"
   },
   "dependencies": {
-    "@naturalcycles/js-lib": "^10.2.0",
+    "@naturalcycles/js-lib": "^11.1.0",
     "file-url": "^3.0.0",
     "fs-extra": "^9.0.0",
     "globby": "^11.0.0",
-    "puppeteer": "^2.1.1",
+    "puppeteer": "^3.0.0",
     "yargs": "^15.1.0"
   },
   "devDependencies": {
