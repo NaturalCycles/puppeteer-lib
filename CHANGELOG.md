@@ -1,3 +1,10 @@
+## [1.9.2](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.9.1...v1.9.2) (2020-04-16)
+
+
+### Bug Fixes
+
+* deps ([e952940](https://github.com/NaturalCycles/puppeteer-lib/commit/e952940feeddc1bd876613dae89d1ded39ee14cd))
+
 ## [1.9.1](https://github.com/NaturalCycles/puppeteer-lib/compare/v1.9.0...v1.9.1) (2020-04-08)
 
 
