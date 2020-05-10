@@ -47,7 +47,7 @@
   "engines": {
     "node": ">=10.13"
   },
-  "version": "1.9.2",
+  "version": "1.9.3",
   "description": "CLI to quickly produce PDFs or screenshots from HTML files or urls using Puppeteer",
   "author": "Natural Cycles Team",
   "license": "MIT"
